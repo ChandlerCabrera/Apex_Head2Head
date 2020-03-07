@@ -36,14 +36,6 @@ def request_player_info():
     #response_to_json(response.text)
     #data = json.loads(response)
 
-    #testing git functionality
-
-print("Result")
-print(base_url + endpoint)
-
-request_player_info()
 
 
-    
-    
 

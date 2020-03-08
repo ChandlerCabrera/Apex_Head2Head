@@ -31,10 +31,16 @@ class Player(object):
                 highest_kill_count = kills
                 main_legend = name
             legend_kills[name] = kills
-            
+
         k_percentage = "{:.2f}".format(100*highest_kill_count/lifetime_kills)
         print(f"Main legend: {main_legend} with {k_percentage}% of total kills")
-        print(legend_kills)
+        #print(legend_kills)
 
+    def get_clutch_rate(self):
+        data = c.api_request(self.endpoint)
+        wins =              data["data"]["segments"][0]["stats"]["seasonWins"]["value"]
+        top_3_situations =  data["data"]["segments"][0]["stats"]["timesPlacedtop3"]["value"]
 
+        win_percentage = "{:.2f}".format(wins*100/top_3_situations)
+        print(f"{self.ign} wins {win_percentage}% of the time when in top 3")
 
